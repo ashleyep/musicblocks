@@ -548,16 +548,17 @@
                         <ul class="main right">
                             <li>
                                 <!-- make a toggle for the navbar -->
-                                <a id="toggleButton" class="tooltipped" data-position="bottom" >
+                                <a id="toggleButton" class="tooltipped" data-position="bottom" href="#" onclick="toggleClicked(); return false;">
                                     <div class="switch">
                                         <label>
                                             Off
-                                            <input type="checkbox">
+                                            <input type="checkbox" id="toggleSwitch">
                                             <span class="lever"></span>
                                             On
                                         </label>
                                     </div>
                                 </a>
+                                
                                 
                 
                             </li>
@@ -932,15 +933,17 @@
                 // Function to handle toggle click event
                 function toggleClicked() {
                     // Get the toggleButton element
-                    var toggleButton = document.getElementById("toggleButton");
+                    var toggleButton = document.getElementById("toggleSwitch");
 
                     // Check if the toggleButton is checked (ON) or not (OFF)
-                    if (toggleButton.checked) {
-                        console.log("Toggle state: ON");
-                    } else {
-                        console.log("Toggle state: OFF");
-                    }
+                    // if (toggleButton.checked) {
+                    //     console.log("Toggle state: ON");
+                    // } else {
+                    //     console.log("Toggle state: OFF");
+                    // }
+                    toggleSwitch.checked = !toggleSwitch.checked;
                 }
+                
 
             document.addEventListener('fullscreenchange', handleFullscreenChange);
             document.addEventListener('webkitfullscreenchange', handleFullscreenChange);
