@@ -122,7 +122,7 @@
         onload="init();"
         data-title="index"
         id="body"
-        style="background: #f9f9f9;"
+        style="background: #F9F9F9;"
      >
         <div
             id="loading-image-container"
@@ -181,6 +181,15 @@
                       // Show the loading text after 6 seconds
                       loadingText.style.opacity = 1;
                     }, 4000); // Change 6000 to adjust the delay (in milliseconds)
+                    // Retrieve the toggle state from localStorage
+                    var toggleState = localStorage.getItem("toggleState");
+
+                    // Set the background color based on the toggle state
+                    if (toggleState === "on") {
+                        document.getElementById("loading-image-container").style.backgroundColor = 'black';
+                    } else {
+                        document.getElementById("loading-image-container").style.backgroundColor = 'white';
+                    }
                   });
               </script>
         </div>
@@ -934,14 +943,34 @@
                 function toggleClicked() {
                     // Get the toggleButton element
                     var toggleButton = document.getElementById("toggleSwitch");
+                    var loading_background = document.getElementById("loading-image-container");
+                    var canvas_background = document.getElementById("canvasContainer");
+                    var toggleState = localStorage.getItem("toggleState");
 
                     // Check if the toggleButton is checked (ON) or not (OFF)
-                    // if (toggleButton.checked) {
-                    //     console.log("Toggle state: ON");
-                    // } else {
-                    //     console.log("Toggle state: OFF");
-                    // }
                     toggleSwitch.checked = !toggleSwitch.checked;
+                    // if (toggleState === "on") {
+                    //     toggleSwitch.checked = true;
+                    // }
+                    localStorage.setItem("toggleState", toggleSwitch.checked ? "on" : "off");
+
+                    // Set the background color based on the toggle state
+                    if (toggleSwitch.checked) {
+                        console.log("Toggle state: ON");
+                        document.body.style.backgroundColor = 'black';
+                        loading_background.style.backgroundColor = 'black';
+                        canvas_background.style.backgroundColor = 'black';
+                        document.getElementById("canvasHolder").style.backgroundColor = 'black';
+                        document.getElementById("body").style.backgroundColor = 'black';
+
+                    } else {
+                        console.log("Toggle state: OFF");
+                        document.body.style.backgroundColor = 'white';
+                        loading_background.style.backgroundColor = 'white';
+                        canvas_background.style.backgroundColor = 'white';
+
+                    }
+               
                 }
                 
 
