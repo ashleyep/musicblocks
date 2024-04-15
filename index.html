@@ -187,8 +187,10 @@
                     // Set the background color based on the toggle state
                     if (toggleState === "on") {
                         document.getElementById("loading-image-container").style.backgroundColor = 'black';
+                        document.getElementById("toggleSwitch").checked = true;
                     } else {
                         document.getElementById("loading-image-container").style.backgroundColor = 'white';
+                        document.getElementById("toggleSwitch").checked = false;
                     }
                   });
               </script>
