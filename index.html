@@ -53,6 +53,8 @@
 
         <script src="lib/astring.min.js" defer></script>
 
+        
+
         <link rel="prefetch" type="application/l10n" href="./localization.ini"/>
 
         <script data-main="js/loader" src="lib/require.js" defer></script>
@@ -545,17 +547,30 @@
 
                         <ul class="main right">
                             <li>
+                                <!-- make a toggle for the navbar -->
+                                <a id="toggleButton" class="tooltipped" data-position="bottom" >
+                                    <div class="switch">
+                                        <label>
+                                            Off
+                                            <input type="checkbox">
+                                            <span class="lever"></span>
+                                            On
+                                        </label>
+                                    </div>
+                                </a>
+                                
+                
+                            </li>
+                            <li>
                                 <a 
-
                                     id="FullScreen"
                                     class="FullScreen tooltipped dropdown-trigger" 
                                     data-position="bottom" 
-                                    onclick="setIcon()"
-                                    ><i class="material-icons" 
+                                    onclick="setIcon()">
+                                    <i class="material-icons" 
                                         id="FullScrIcon"
-                                        >&#xe5d0;</i
-                                    ></a
-                                >
+                                        >&#xe5d0;</i>
+                                </a>
                             </li>
                             <li>
                                 <a
@@ -912,7 +927,21 @@
                     iconCode.textContent='\ue5d0';
                     count = 0;
                 }
-            }
+               
+                }
+                // Function to handle toggle click event
+                function toggleClicked() {
+                    // Get the toggleButton element
+                    var toggleButton = document.getElementById("toggleButton");
+
+                    // Check if the toggleButton is checked (ON) or not (OFF)
+                    if (toggleButton.checked) {
+                        console.log("Toggle state: ON");
+                    } else {
+                        console.log("Toggle state: OFF");
+                    }
+                }
+
             document.addEventListener('fullscreenchange', handleFullscreenChange);
             document.addEventListener('webkitfullscreenchange', handleFullscreenChange);
             document.addEventListener('mozfullscreenchange', handleFullscreenChange);
